@@ -1,0 +1,72 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: escrowatt_postgres
+    environment:
+      POSTGRES_USER: escrowatt
+      POSTGRES_PASSWORD: escrowatt_secret
+      POSTGRES_DB: escrowatt_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U escrowatt -d escrowatt_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: escrowatt_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redisdata:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: escrowatt_api
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql+asyncpg://escrowatt:escrowatt_secret@postgres:5432/escrowatt_db
+      REDIS_URL: redis://redis:6379/0
+      ENVIRONMENT: production
+      LOG_LEVEL: INFO
+      JWT_SECRET: production-secret-key-change-in-aws-ssm-vault-123456789
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+
+  outbox-worker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: escrowatt_outbox_worker
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql+asyncpg://escrowatt:escrowatt_secret@postgres:5432/escrowatt_db
+      REDIS_URL: redis://redis:6379/0
+      ENVIRONMENT: production
+      LOG_LEVEL: INFO
+    command: ["python", "-m", "src.webhooks.worker"]
+    restart: unless-stopped
+
+volumes:
+  pgdata:
+  redisdata:
