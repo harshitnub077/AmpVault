@@ -6,6 +6,7 @@ import pytest
 from src.core.exceptions import WebhookVerificationError
 from src.webhooks.outbox import OutboxDispatcher, schedule_outbox_event
 from src.webhooks.verifier import sign_payload, verify_webhook_signature
+from src.webhooks.worker import run_worker
 
 
 def test_webhook_signature_verification_success():
@@ -84,3 +85,9 @@ async def test_outbox_exponential_backoff_on_failure(db_session):
     assert event.status == "PENDING"
     assert event.retry_count == 1
     assert "HTTP 500" in event.last_error
+
+
+@pytest.mark.asyncio
+async def test_outbox_worker_run_once():
+    # Verify worker executes run_once poll without error
+    await run_worker(poll_interval=0.1, run_once=True)
