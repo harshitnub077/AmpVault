@@ -3,9 +3,11 @@ import time
 import uuid
 from collections.abc import AsyncGenerator
 from contextlib import asynccontextmanager
+from pathlib import Path
 
 from fastapi import FastAPI, Request, Response, status
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import HTMLResponse
 from prometheus_client import CONTENT_TYPE_LATEST, Counter, Histogram, generate_latest
 from sqlalchemy import text
 
@@ -79,6 +81,18 @@ async def observability_middleware(request: Request, call_next):
         REQUEST_LATENCY.labels(endpoint=path).observe(duration)
 
     return response
+
+
+# Landing Website
+STATIC_DIR = Path(__file__).parent / "static"
+
+
+@app.api_route("/", methods=["GET", "HEAD"], response_class=HTMLResponse, include_in_schema=False)
+async def serve_homepage():
+    index_path = STATIC_DIR / "index.html"
+    if index_path.exists():
+        return HTMLResponse(content=index_path.read_text(encoding="utf-8"))
+    return HTMLResponse(content="<h1>Ampvault Escrow Platform</h1><p>API docs at <a href='/docs'>/docs</a></p>")
 
 
 # Health & Telemetry

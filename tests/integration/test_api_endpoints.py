@@ -41,6 +41,11 @@ async def test_health_and_metrics_endpoints():
         assert met.status_code == 200
         assert "http_requests_total" in met.text
 
+        # Landing Homepage
+        home = await client.get("/")
+        assert home.status_code == 200
+        assert "Ampvault" in home.text
+
 
 @pytest.mark.asyncio
 async def test_full_api_escrow_workflow():
