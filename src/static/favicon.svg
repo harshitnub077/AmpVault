@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="favGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#A1A1AA" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="#000000" stroke="#27272a" stroke-width="1.5"/>
+  <!-- Outer Diamond Vault Frame -->
+  <rect x="32" y="6" width="36" height="36" rx="6" transform="rotate(45 32 6)" stroke="url(#favGrad)" stroke-width="2.5" fill="none"/>
+  <!-- Inner Concentric Diamond -->
+  <rect x="32" y="16" width="22" height="22" rx="3" transform="rotate(45 32 16)" stroke="#ffffff" stroke-width="1.5" stroke-opacity="0.3" fill="none"/>
+  <!-- Center Clean Energy Lightning Bolt -->
+  <path d="M35 18L24 33H32L29 46L42 30H34L35 18Z" fill="url(#favGrad)"/>
+</svg>
