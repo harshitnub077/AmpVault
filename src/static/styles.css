@@ -372,3 +372,115 @@ body {
     color: var(--text-muted);
 }
 
+/* Hero Right: 3D Obsidian Vault Core Display */
+.hero-right {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+.hero-visual-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 28px;
+    padding: 16px;
+    background: radial-gradient(circle at center, rgba(16, 185, 129, 0.08) 0%, rgba(0, 240, 255, 0.04) 40%, rgba(0, 0, 0, 0.85) 80%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    animation: floatHero 6s ease-in-out infinite;
+}
+@keyframes floatHero {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+.hero-vault-img {
+    width: 100%;
+    max-width: 440px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 20px;
+    display: block;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9);
+    border: 1px solid rgba(165, 237, 238, 0.2);
+}
+.hero-glow-backdrop {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 90%;
+    background: radial-gradient(circle, rgba(0, 240, 255, 0.2) 0%, rgba(16, 185, 129, 0.15) 50%, transparent 75%);
+    filter: blur(55px);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Floating HUD Chips */
+.hud-chip {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(8, 12, 18, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 14px;
+    padding: 10px 16px;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.7);
+    z-index: 10;
+    pointer-events: auto;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.hud-chip:hover {
+    transform: translateY(-2px);
+    border-color: rgba(165, 237, 238, 0.5);
+}
+.hud-chip-top {
+    top: -12px;
+    left: -20px;
+}
+.hud-chip-bottom {
+    bottom: -14px;
+    right: -16px;
+}
+.hud-chip-side {
+    bottom: 40px;
+    left: -28px;
+}
+.hud-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+.hud-indicator.green {
+    background: #10b981;
+    box-shadow: 0 0 10px #10b981;
+}
+.hud-indicator.cyan {
+    background: #00f0ff;
+    box-shadow: 0 0 10px #00f0ff;
+}
+.hud-indicator.emerald {
+    background: #a5edee;
+    box-shadow: 0 0 10px #a5edee;
+}
+.hud-label {
+    font-family: var(--font-heading);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+.hud-value {
+    font-size: 13px;
+    font-weight: 600;
+    color: #ffffff;
+    line-height: 1.3;
+}
+
