@@ -265,3 +265,110 @@ body {
    SECTIONS
    ========================================================================== */
 
+/* 1. Hero Section */
+.hero-section {
+    min-height: calc(100vh - 40px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 130px;
+    padding-bottom: 70px;
+    position: relative;
+}
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 56px;
+    align-items: center;
+}
+.hero-left {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+}
+.hero-eyebrow-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    padding: 7px 16px;
+    border-radius: 9999px;
+    width: fit-content;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+.pulse-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #10b981;
+    box-shadow: 0 0 12px #10b981;
+    animation: pulseGlow 2s infinite ease-in-out;
+}
+@keyframes pulseGlow {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.85); }
+}
+.hero-eyebrow-text {
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+    letter-spacing: 0.05em;
+}
+.gradient-text {
+    background: linear-gradient(135deg, #ffffff 20%, #a5edee 65%, #10b981 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.hero-lead {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.55;
+    color: var(--text-muted);
+    max-width: 580px;
+}
+.hero-buttons {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    padding-top: 4px;
+}
+.hero-trust-bar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-top: 12px;
+}
+.avatar-stack {
+    display: flex;
+    align-items: center;
+}
+.avatar-stack img {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 2px solid #000000;
+    margin-left: -12px;
+    object-fit: cover;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+}
+.avatar-stack img:first-child {
+    margin-left: 0;
+}
+.hero-trust-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+.trust-bold {
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffffff;
+}
+.trust-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
