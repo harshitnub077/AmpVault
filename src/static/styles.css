@@ -484,3 +484,44 @@ body {
     line-height: 1.3;
 }
 
+/* 3. Partners Grid */
+.partners-section {
+    padding: 60px 0 100px;
+    text-align: center;
+}
+.partners-header {
+    margin-bottom: 48px;
+}
+.partners-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+.partner-box {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border-glass);
+    border-radius: 14px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    transition: all 0.25s ease;
+}
+.partner-box:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+.partner-box img {
+    max-width: 120px;
+    max-height: 48px;
+    object-fit: contain;
+    opacity: 0.75;
+    transition: opacity 0.2s;
+}
+.partner-box:hover img {
+    opacity: 1;
+}
+
