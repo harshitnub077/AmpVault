@@ -923,3 +923,71 @@ body {
     height: 16px;
 }
 
+/* 10. Call-To-Action & Footer */
+.cta-footer-section {
+    padding: 120px 0 60px;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.cta-content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    max-width: 680px;
+}
+.cta-buttons {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.footer-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-top: 80px;
+    border-top: 1px solid var(--border-glass);
+}
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.footer-brand .name {
+    font-family: var(--font-heading);
+    font-size: 26px;
+    font-weight: 600;
+    color: #ffffff;
+}
+.footer-brand .email {
+    font-size: 15px;
+    color: var(--text-muted);
+}
+.footer-columns {
+    display: flex;
+    gap: 64px;
+}
+.footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.footer-col .title {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: rgba(255, 255, 255, 0.4);
+    margin-bottom: 4px;
+}
+.footer-col a {
+    color: var(--text-muted);
+    font-size: 14px;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.footer-col a:hover {
+    color: #ffffff;
+}
+
