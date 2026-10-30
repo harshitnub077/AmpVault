@@ -739,3 +739,47 @@ body {
     gap: 10px;
 }
 
+/* 7. Benefits Section (White Stat Cards) */
+.benefits-section {
+    padding: 100px 0;
+}
+.benefits-layout {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 64px;
+    align-items: center;
+}
+.benefits-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+.stat-card {
+    background: #ffffff;
+    color: #000000;
+    border-radius: 16px;
+    padding: 36px 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 180px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+    transition: transform 0.25s ease;
+}
+.stat-card:hover {
+    transform: translateY(-4px);
+}
+.stat-number {
+    font-family: var(--font-heading);
+    font-size: clamp(38px, 4vw, 54px);
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: #000000;
+}
+.stat-label {
+    font-size: 15px;
+    font-weight: 500;
+    color: #333333;
+}
+
