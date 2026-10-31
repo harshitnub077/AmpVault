@@ -613,6 +613,12 @@
                 <option value="8504">Solar Inverters & Power Units (HSN 8504 — 18% GST)</option>
                 <option value="8507">Lithium Iron Storage Batteries (HSN 8507 — 18% GST)</option>
             </select>
+            <label style="font-size: 13px; color: rgba(255,255,255,0.8); display: flex; justify-content: space-between;">
+                <span>Consignment Value (Base)</span>
+                <span id="calcValueDisplay" style="color: #a5edee; font-weight: 600;">₹15,00,000</span>
+            </label>
+            <input type="range" min="200000" max="5000000" step="50000" value="1500000" id="calcSlider" class="amp-calc-input" style="padding: 0; cursor: pointer;" oninput="updateCalculations()" />
+
 
         </div>
     </div>
