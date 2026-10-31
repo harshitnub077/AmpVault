@@ -668,6 +668,27 @@
         function formatINR(num) {
             return '₹' + Number(num).toLocaleString('en-IN');
         }
+        function updateCalculations() {
+            const slider = document.getElementById('calcSlider');
+            const type = document.getElementById('equipmentType');
+            if (!slider || !type) return;
+
+            const val = parseFloat(slider.value);
+            document.getElementById('calcValueDisplay').textContent = formatINR(val);
+            document.getElementById('calcBase').textContent = formatINR(val);
+
+            const isPanels = type.value === '8541';
+            const rate = isPanels ? 0.12 : 0.18;
+            document.getElementById('calcGstRate').textContent = (rate * 100) + '%';
+
+            const gst = Math.round(val * rate);
+            const fee = Math.round(val * 0.004);
+            const total = val + gst + fee;
+
+            document.getElementById('calcGst').textContent = formatINR(gst);
+            document.getElementById('calcFee').textContent = formatINR(fee);
+            document.getElementById('calcTotal').textContent = formatINR(total);
+        }
     </script>
 </body>
 </html>
