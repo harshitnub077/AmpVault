@@ -596,7 +596,7 @@
 
         </main>
 
-    <!-- Interactive Instant Escrow Calculator Modal -->
+<!-- Interactive Instant Escrow Calculator Modal -->
     <div class="amp-modal-backdrop" id="calcModal" onclick="if(event.target===this)closeCalculatorModal()">
         <div class="amp-modal-card">
             <button class="amp-modal-close" onclick="closeCalculatorModal()">&times;</button>
@@ -607,17 +607,20 @@
                 <h3 style="font-family: 'DM Sans', sans-serif; font-size: 22px; font-weight: 600;">Instant Escrow Calculator</h3>
             </div>
             <p style="font-size: 14px; color: rgba(255,255,255,0.7); margin-bottom: 20px;">Simulate your solar equipment transaction with double-entry precision and Indian GST compliance.</p>
+            
             <label style="font-size: 13px; color: rgba(255,255,255,0.8);">Equipment Classification</label>
             <select class="amp-calc-input" id="equipmentType" onchange="updateCalculations()">
                 <option value="8541">Solar PV Modules (HSN 8541 — 12% GST)</option>
                 <option value="8504">Solar Inverters & Power Units (HSN 8504 — 18% GST)</option>
                 <option value="8507">Lithium Iron Storage Batteries (HSN 8507 — 18% GST)</option>
             </select>
+
             <label style="font-size: 13px; color: rgba(255,255,255,0.8); display: flex; justify-content: space-between;">
                 <span>Consignment Value (Base)</span>
                 <span id="calcValueDisplay" style="color: #a5edee; font-weight: 600;">₹15,00,000</span>
             </label>
             <input type="range" min="200000" max="5000000" step="50000" value="1500000" id="calcSlider" class="amp-calc-input" style="padding: 0; cursor: pointer;" oninput="updateCalculations()" />
+
             <div style="background: rgba(255,255,255,0.04); border-radius: 12px; padding: 16px; margin-top: 8px; border: 1px solid rgba(255,255,255,0.08);">
                 <div style="display: flex; justify-content: space-between; font-size: 13px; color: rgba(255,255,255,0.7); margin-bottom: 6px;">
                     <span>Base Equipment:</span>
@@ -637,9 +640,28 @@
                 </div>
             </div>
 
+            <!-- Milestone Schedule Breakdown -->
+            <div style="margin-top: 16px; font-size: 12px; color: rgba(255,255,255,0.6); display: flex; justify-content: space-between; text-align: center;">
+                <div style="flex: 1; padding: 8px; background: rgba(255,255,255,0.02); border-radius: 6px; margin-right: 4px;">
+                    <div style="color: #a5edee; font-weight: 600;">20% Advance</div>
+                    <div>Dispatch Locked</div>
+                </div>
+                <div style="flex: 1; padding: 8px; background: rgba(255,255,255,0.02); border-radius: 6px; margin-right: 4px;">
+                    <div style="color: #a5edee; font-weight: 600;">70% Delivery</div>
+                    <div>LR & Inspection</div>
+                </div>
+                <div style="flex: 1; padding: 8px; background: rgba(255,255,255,0.02); border-radius: 6px;">
+                    <div style="color: #a5edee; font-weight: 600;">10% Final</div>
+                    <div>Commissioning</div>
+                </div>
+            </div>
 
-
+            <button onclick="submitEscrowDemo()" style="width: 100%; margin-top: 20px; height: 48px; background: #fff; color: #000; border: none; border-radius: 9999px; font-weight: 600; font-size: 14px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                <span>Open High-Assurance Vault</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </button>
         </div>
     </div>
-</body>
+
+    </body>
 </html>
