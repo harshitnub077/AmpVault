@@ -704,6 +704,9 @@
             document.getElementById('calcFee').textContent = formatINR(fee);
             document.getElementById('calcTotal').textContent = formatINR(total);
         }
+            window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeCalculatorModal();
+        });
     </script>
 </body>
 </html>
