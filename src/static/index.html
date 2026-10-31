@@ -665,6 +665,14 @@
 
     
     <script>
+        function scrollToEl(id) {
+            const el = document.getElementById(id);
+            if (el) {
+                const navHeight = 90;
+                const top = el.getBoundingClientRect().top + window.pageYOffset - navHeight;
+                window.scrollTo({ top, behavior: 'smooth' });
+            }
+        }
         function formatINR(num) {
             return '₹' + Number(num).toLocaleString('en-IN');
         }
