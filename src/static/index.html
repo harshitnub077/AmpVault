@@ -607,6 +607,13 @@
                 <h3 style="font-family: 'DM Sans', sans-serif; font-size: 22px; font-weight: 600;">Instant Escrow Calculator</h3>
             </div>
             <p style="font-size: 14px; color: rgba(255,255,255,0.7); margin-bottom: 20px;">Simulate your solar equipment transaction with double-entry precision and Indian GST compliance.</p>
+            <label style="font-size: 13px; color: rgba(255,255,255,0.8);">Equipment Classification</label>
+            <select class="amp-calc-input" id="equipmentType" onchange="updateCalculations()">
+                <option value="8541">Solar PV Modules (HSN 8541 — 12% GST)</option>
+                <option value="8504">Solar Inverters & Power Units (HSN 8504 — 18% GST)</option>
+                <option value="8507">Lithium Iron Storage Batteries (HSN 8507 — 18% GST)</option>
+            </select>
+
         </div>
     </div>
 </body>
