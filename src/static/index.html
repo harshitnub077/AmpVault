@@ -673,6 +673,13 @@
                 window.scrollTo({ top, behavior: 'smooth' });
             }
         }
+        function openCalculatorModal() {
+            document.getElementById('calcModal').classList.add('active');
+            updateCalculations();
+        }
+        function closeCalculatorModal() {
+            document.getElementById('calcModal').classList.remove('active');
+        }
         function formatINR(num) {
             return '₹' + Number(num).toLocaleString('en-IN');
         }
