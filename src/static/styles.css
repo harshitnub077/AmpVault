@@ -991,3 +991,69 @@ body {
     color: #ffffff;
 }
 
+/* Modal Dialogs */
+.amp-modal-backdrop {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(8, 10, 15, 0.88);
+    backdrop-filter: blur(25px);
+    z-index: 1000000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.amp-modal-backdrop.active {
+    display: flex;
+    opacity: 1;
+}
+.amp-modal-card {
+    background: #090a0f;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+    padding: 36px;
+    max-width: 520px;
+    width: 90%;
+    color: #fff;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.7);
+    position: relative;
+    transform: scale(0.96);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.amp-modal-backdrop.active .amp-modal-card {
+    transform: scale(1);
+}
+.amp-modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.08);
+    border: none;
+    color: #fff;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.amp-calc-input {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    padding: 12px 16px;
+    color: #fff;
+    font-size: 15px;
+    margin-top: 8px;
+    margin-bottom: 16px;
+    outline: none;
+    font-family: inherit;
+}
+.amp-calc-input:focus {
+    border-color: var(--accent-cyan);
+}
+

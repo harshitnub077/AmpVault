@@ -595,7 +595,19 @@
     </main>
 
         </main>
-</body>
-</html>
+
+    <!-- Interactive Instant Escrow Calculator Modal -->
+    <div class="amp-modal-backdrop" id="calcModal" onclick="if(event.target===this)closeCalculatorModal()">
+        <div class="amp-modal-card">
+            <button class="amp-modal-close" onclick="closeCalculatorModal()">&times;</button>
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#a5edee" stroke-width="2">
+                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                </svg>
+                <h3 style="font-family: 'DM Sans', sans-serif; font-size: 22px; font-weight: 600;">Instant Escrow Calculator</h3>
+            </div>
+            <p style="font-size: 14px; color: rgba(255,255,255,0.7); margin-bottom: 20px;">Simulate your solar equipment transaction with double-entry precision and Indian GST compliance.</p>
+        </div>
+    </div>
 </body>
 </html>
