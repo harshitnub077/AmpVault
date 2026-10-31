@@ -618,6 +618,25 @@
                 <span id="calcValueDisplay" style="color: #a5edee; font-weight: 600;">₹15,00,000</span>
             </label>
             <input type="range" min="200000" max="5000000" step="50000" value="1500000" id="calcSlider" class="amp-calc-input" style="padding: 0; cursor: pointer;" oninput="updateCalculations()" />
+            <div style="background: rgba(255,255,255,0.04); border-radius: 12px; padding: 16px; margin-top: 8px; border: 1px solid rgba(255,255,255,0.08);">
+                <div style="display: flex; justify-content: space-between; font-size: 13px; color: rgba(255,255,255,0.7); margin-bottom: 6px;">
+                    <span>Base Equipment:</span>
+                    <span id="calcBase" style="color: #fff;">₹15,00,000</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 13px; color: rgba(255,255,255,0.7); margin-bottom: 6px;">
+                    <span>Statutory GST (<span id="calcGstRate">12%</span>):</span>
+                    <span id="calcGst" style="color: #fff;">₹1,80,000</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 13px; color: rgba(255,255,255,0.7); margin-bottom: 12px;">
+                    <span>Escrow Rail Fee (0.4%):</span>
+                    <span id="calcFee" style="color: #a5edee;">₹6,000</span>
+                </div>
+                <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 10px; display: flex; justify-content: space-between; font-size: 15px; font-weight: 600;">
+                    <span>Total Escrow Deposit:</span>
+                    <span id="calcTotal" style="color: #fff;">₹16,86,000</span>
+                </div>
+            </div>
+
 
 
         </div>
