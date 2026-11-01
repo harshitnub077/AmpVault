@@ -663,7 +663,31 @@
         </div>
     </div>
 
-    
+    <!-- Demo Modal -->
+    <div class="amp-modal-backdrop" id="demoModal" onclick="if(event.target===this)closeDemoModal()">
+        <div class="amp-modal-card" style="max-width: 640px;">
+            <button class="amp-modal-close" onclick="closeDemoModal()">&times;</button>
+            
+            <!-- Tabs -->
+            <div style="display: flex; gap: 8px; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 12px;">
+                <button id="tabBtnSim" onclick="switchDemoTab('sim')" style="background: rgba(165,237,238,0.12); border: 1px solid rgba(165,237,238,0.3); color: #a5edee; font-weight: 600; font-size: 13px; cursor: pointer; padding: 6px 14px; border-radius: 6px;">Live Escrow Simulator</button>
+                <button id="tabBtnLead" onclick="switchDemoTab('lead')" style="background: none; border: 1px solid transparent; color: rgba(255,255,255,0.6); font-weight: 500; font-size: 13px; cursor: pointer; padding: 6px 14px; border-radius: 6px;">Schedule Walkthrough</button>
+            </div>
+
+            <!-- Tab 1: Live Interactive Simulator -->
+            <div id="demoTabSim">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                    <div>
+                        <div style="font-size: 11px; text-transform: uppercase; color: #a5edee; font-weight: 600; letter-spacing: 0.05em;">Interactive State Machine</div>
+                        <h3 style="font-family: 'DM Sans', sans-serif; font-size: 18px; font-weight: 600; margin: 2px 0 0 0;">Solar Escrow & Double-Entry Settlement</h3>
+                    </div>
+                    <span id="simStateBadge" style="font-family: monospace; font-size: 11px; padding: 4px 10px; border-radius: 9999px; background: rgba(245,158,11,0.15); color: #f59e0b; border: 1px solid rgba(245,158,11,0.3);">IDLE</span>
+                </div>
+
+                            </div>
+        </div>
+    </div>
+
     <script>
         function scrollToEl(id) {
             const el = document.getElementById(id);
