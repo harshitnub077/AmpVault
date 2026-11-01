@@ -818,6 +818,14 @@ Click 'Step 1' below to execute the real multi-party solar settlement flow.</div
                 badgeBorder: "rgba(6,182,212,0.3)",
                 btnText: "Step 4: Verify GPS Geofence & Delivery",
                 log: "[STEP 3: SHIPMENT DISPATCHED]\nSeller Dispatched Consignment via BlueDart Solar Logistics\nDocket No: BD-849102-IN | E-Way Bill: 8941-2094-1184 Verified\nTracking Webhook HMAC-SHA256 verified.\nStatus: IN_TRANSIT (En-route to Gujarat Solar Park site)"
+            },
+            {
+                name: "DELIVERED",
+                badgeBg: "rgba(165,237,238,0.15)",
+                badgeColor: "#a5edee",
+                badgeBorder: "rgba(165,237,238,0.3)",
+                btnText: "Step 5: Execute Multi-Leg Double-Entry Settlement",
+                log: "[STEP 4: DELIVERY CONFIRMED]\nOn-site Delivery Receipt & GPS Geofence Verified.\nEPC Site Engineer Sign-off & EL Flash Test Report Attached.\nInspection Hold Released.\nStatus: DELIVERED (Ready for Settlement Payout)"
             }
         ];
 function simAdvance() {
