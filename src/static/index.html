@@ -826,6 +826,14 @@ Click 'Step 1' below to execute the real multi-party solar settlement flow.</div
                 badgeBorder: "rgba(165,237,238,0.3)",
                 btnText: "Step 5: Execute Multi-Leg Double-Entry Settlement",
                 log: "[STEP 4: DELIVERY CONFIRMED]\nOn-site Delivery Receipt & GPS Geofence Verified.\nEPC Site Engineer Sign-off & EL Flash Test Report Attached.\nInspection Hold Released.\nStatus: DELIVERED (Ready for Settlement Payout)"
+            },
+            {
+                name: "RELEASED",
+                badgeBg: "rgba(16,185,129,0.25)",
+                badgeColor: "#10b981",
+                badgeBorder: "rgba(16,185,129,0.5)",
+                btnText: "Completed (Reset Simulation)",
+                log: "[STEP 5: MULTI-LEG SETTLEMENT COMPLETED]\nAtomic Ledger Payout Execution:\n  ├── DEBIT  Buyer Escrow Liability: ₹16,80,000\n  ├── CREDIT Seller Payout Account: ₹14,94,000 (Goods Net)\n  ├── CREDIT Statutory GST Remittance: ₹1,80,000\n  └── CREDIT Ampvault Rail Revenue (0.4%): ₹6,000\n[AUDIT PASS] Mod-36 Check: 0 PAISE DRIFT GUARANTEED!\nStatus: RELEASED & IMMUTABLY SETTLED."
             }
         ];
 function simAdvance() {
