@@ -804,6 +804,50 @@ Click 'Step 1' below to execute the real multi-party solar settlement flow.</div
                 log: "[STEP 1: INITIALIZED]\nConsignment: ESC-2026-9481 | 100kW Tier-1 Bifacial PV Modules\nBase Value: ₹15,00,000 | Statutory GST (HSN 8541 12%): ₹1,80,000\nTotal Required Escrow Deposit: ₹16,80,000\nBuyer Virtual Account Allocated: VA-ICICI-9481\nStatus: CREATED (Awaiting Buyer Deposit)"
             }
         ];
-    </script>
+function simAdvance() {
+            if (currentSimStep >= 5) {
+                simReset();
+                return;
+            }
+            const data = simStepData[currentSimStep];
+            currentSimStep++;
+
+            const badge = document.getElementById('simStateBadge');
+            if (badge) {
+                badge.textContent = data.name;
+                badge.style.background = data.badgeBg;
+                badge.style.color = data.badgeColor;
+                badge.style.borderColor = data.badgeBorder;
+            }
+
+            for (let i = 1; i <= 5; i++) {
+                const node = document.getElementById('simNode' + i);
+                if (node) {
+                    if (i < currentSimStep) {
+                        node.style.background = 'rgba(16,185,129,0.2)';
+                        node.style.color = '#10b981';
+                    } else if (i === currentSimStep) {
+                        node.style.background = 'rgba(165,237,238,0.25)';
+                        node.style.color = '#a5edee';
+                        node.style.fontWeight = '600';
+                    } else {
+                        node.style.background = 'rgba(255,255,255,0.05)';
+                        node.style.color = 'rgba(255,255,255,0.5)';
+                        node.style.fontWeight = 'normal';
+                    }
+                }
+            }
+
+            const term = document.getElementById('simTerminal');
+            if (term) {
+                term.textContent += '\n\n' + data.log;
+                term.scrollTop = term.scrollHeight;
+            }
+
+            const btnLabel = document.querySelector('#simActionBtn span');
+            if (btnLabel) btnLabel.textContent = data.btnText;
+        }
+
+            </script>
 </body>
 </html>
