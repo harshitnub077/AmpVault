@@ -710,8 +710,7 @@ Click 'Step 1' below to execute the real multi-party solar settlement flow.</div
 
                     </div>
     </div>
-
-    <script>
+<script>
         function scrollToEl(id) {
             const el = document.getElementById(id);
             if (el) {
@@ -720,9 +719,13 @@ Click 'Step 1' below to execute the real multi-party solar settlement flow.</div
                 window.scrollTo({ top, behavior: 'smooth' });
             }
         }
+
         function openCalculatorModal() {
             document.getElementById('calcModal').classList.add('active');
             updateCalculations();
+        }
+        function closeCalculatorModal() {
+            document.getElementById('calcModal').classList.remove('active');
         }
         function openDemoModal() {
             document.getElementById('demoModal').classList.add('active');
@@ -730,19 +733,11 @@ Click 'Step 1' below to execute the real multi-party solar settlement flow.</div
         function closeDemoModal() {
             document.getElementById('demoModal').classList.remove('active');
         }
-        function switchDemoTab(tab) {
-            const isSim = tab === 'sim';
-            const simEl = document.getElementById('demoTabSim');
-            const leadEl = document.getElementById('demoTabLead');
-            if (simEl) simEl.style.display = isSim ? 'block' : 'none';
-            if (leadEl) leadEl.style.display = isSim ? 'none' : 'block';
-        }
-        function closeCalculatorModal() {
-            document.getElementById('calcModal').classList.remove('active');
-        }
+
         function formatINR(num) {
             return '₹' + Number(num).toLocaleString('en-IN');
         }
+
         function updateCalculations() {
             const slider = document.getElementById('calcSlider');
             const type = document.getElementById('equipmentType');
@@ -764,9 +759,51 @@ Click 'Step 1' below to execute the real multi-party solar settlement flow.</div
             document.getElementById('calcFee').textContent = formatINR(fee);
             document.getElementById('calcTotal').textContent = formatINR(total);
         }
-            window.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') closeCalculatorModal();
-        });
+
+        function submitEscrowDemo() {
+            openDemoModal();
+            switchDemoTab('sim');
+        }
+
+        function switchDemoTab(tab) {
+            const isSim = tab === 'sim';
+            const simEl = document.getElementById('demoTabSim');
+            const leadEl = document.getElementById('demoTabLead');
+            if (simEl) simEl.style.display = isSim ? 'block' : 'none';
+            if (leadEl) leadEl.style.display = isSim ? 'none' : 'block';
+            
+            const btnSim = document.getElementById('tabBtnSim');
+            const btnLead = document.getElementById('tabBtnLead');
+            if (btnSim && btnLead) {
+                if (isSim) {
+                    btnSim.style.background = 'rgba(165,237,238,0.12)';
+                    btnSim.style.borderColor = 'rgba(165,237,238,0.3)';
+                    btnSim.style.color = '#a5edee';
+                    btnLead.style.background = 'none';
+                    btnLead.style.borderColor = 'transparent';
+                    btnLead.style.color = 'rgba(255,255,255,0.6)';
+                } else {
+                    btnLead.style.background = 'rgba(165,237,238,0.12)';
+                    btnLead.style.borderColor = 'rgba(165,237,238,0.3)';
+                    btnLead.style.color = '#a5edee';
+                    btnSim.style.background = 'none';
+                    btnSim.style.borderColor = 'transparent';
+                    btnSim.style.color = 'rgba(255,255,255,0.6)';
+                }
+            }
+        }
+
+        let currentSimStep = 0;
+        const simStepData = [
+            {
+                name: "CREATED",
+                badgeBg: "rgba(245,158,11,0.15)",
+                badgeColor: "#f59e0b",
+                badgeBorder: "rgba(245,158,11,0.3)",
+                btnText: "Step 2: Lock Buyer Deposit in Virtual Vault",
+                log: "[STEP 1: INITIALIZED]\nConsignment: ESC-2026-9481 | 100kW Tier-1 Bifacial PV Modules\nBase Value: ₹15,00,000 | Statutory GST (HSN 8541 12%): ₹1,80,000\nTotal Required Escrow Deposit: ₹16,80,000\nBuyer Virtual Account Allocated: VA-ICICI-9481\nStatus: CREATED (Awaiting Buyer Deposit)"
+            }
+        ];
     </script>
 </body>
 </html>
