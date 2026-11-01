@@ -693,8 +693,22 @@
                     <div id="simNode5" style="flex: 1; padding: 6px 4px; text-align: center; font-size: 11px; border-radius: 4px; background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.5);">5. Settle</div>
                 </div>
 
-                            </div>
-        </div>
+                <!-- Terminal Display -->
+                <div id="simTerminal" style="background: #020308; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 12px; font-family: 'JetBrains Mono', monospace, Courier; font-size: 11px; line-height: 1.5; color: #a5edee; height: 130px; overflow-y: auto; margin-bottom: 14px; white-space: pre-wrap;">[SYSTEM] Ampvault Escrow Simulator initialized.
+Click 'Step 1' below to execute the real multi-party solar settlement flow.</div>
+
+                <!-- Action Button Controls -->
+                <div style="display: flex; gap: 8px;">
+                    <button id="simActionBtn" onclick="simAdvance()" style="flex: 1; height: 44px; background: #a5edee; color: #000; border: none; border-radius: 9999px; font-weight: 600; font-size: 13px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px;">
+                        <span>Step 1: Initialize Consignment (₹15L + 12% GST)</span>
+                    </button>
+                    <button onclick="simReset()" style="padding: 0 16px; height: 44px; background: rgba(255,255,255,0.08); color: #fff; border: 1px solid rgba(255,255,255,0.15); border-radius: 9999px; font-size: 12px; cursor: pointer;">
+                        Reset
+                    </button>
+                </div>
+            </div>
+
+                    </div>
     </div>
 
     <script>
