@@ -802,6 +802,14 @@ Click 'Step 1' below to execute the real multi-party solar settlement flow.</div
                 badgeBorder: "rgba(245,158,11,0.3)",
                 btnText: "Step 2: Lock Buyer Deposit in Virtual Vault",
                 log: "[STEP 1: INITIALIZED]\nConsignment: ESC-2026-9481 | 100kW Tier-1 Bifacial PV Modules\nBase Value: ₹15,00,000 | Statutory GST (HSN 8541 12%): ₹1,80,000\nTotal Required Escrow Deposit: ₹16,80,000\nBuyer Virtual Account Allocated: VA-ICICI-9481\nStatus: CREATED (Awaiting Buyer Deposit)"
+            },
+            {
+                name: "FUNDED",
+                badgeBg: "rgba(16,185,129,0.15)",
+                badgeColor: "#10b981",
+                badgeBorder: "rgba(16,185,129,0.3)",
+                btnText: "Step 3: Dispatch & Ingest Courier GPS Webhook",
+                log: "[STEP 2: FUNDS LOCKED]\nInward NEFT Credit Verified: ₹16,80,000 from Buyer HDFC\n[DOUBLE-ENTRY POSTING]:\n  ├── DEBIT  Bank Escrow Account (Asset): ₹16,80,000\n  └── CREDIT Buyer Escrow Liability: ₹16,80,000\nStatus: FUNDED (100% Funds Secured in Vault)"
             }
         ];
 function simAdvance() {
