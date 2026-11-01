@@ -708,9 +708,26 @@ Click 'Step 1' below to execute the real multi-party solar settlement flow.</div
                 </div>
             </div>
 
-                    </div>
+            <!-- Tab 2: Walkthrough Form -->
+            <div id="demoTabLead" style="display: none;">
+                <h3 style="font-family: 'DM Sans', sans-serif; font-size: 20px; font-weight: 600; margin-bottom: 8px;">Schedule Institutional Walkthrough</h3>
+                <p style="font-size: 14px; color: rgba(255,255,255,0.7); margin-bottom: 18px;">Connect directly with our escrow architecture engineers for Tier-1 solar consignments.</p>
+                
+                <label style="font-size: 13px; color: rgba(255,255,255,0.8); display: block; margin-bottom: 4px;">Business Name / EPC Entity</label>
+                <input type="text" class="amp-calc-input" placeholder="e.g. Apex Solar Infra Pvt Ltd" id="leadCompany" />
+
+                <label style="font-size: 13px; color: rgba(255,255,255,0.8); display: block; margin-top: 10px; margin-bottom: 4px;">Work Email / Phone</label>
+                <input type="email" class="amp-calc-input" placeholder="procurement@apexsolar.in" id="leadEmail" />
+
+                <button onclick="submitLead()" style="width: 100%; margin-top: 14px; height: 46px; background: #a5edee; color: #000; border: none; border-radius: 9999px; font-weight: 600; font-size: 14px; cursor: pointer;">
+                    Request Priority Access
+                </button>
+            </div>
+        </div>
     </div>
-<script>
+
+    <!-- Interactive Logic & Ambient Network Particle Background -->
+    <script>
         function scrollToEl(id) {
             const el = document.getElementById(id);
             if (el) {
@@ -836,7 +853,8 @@ Click 'Step 1' below to execute the real multi-party solar settlement flow.</div
                 log: "[STEP 5: MULTI-LEG SETTLEMENT COMPLETED]\nAtomic Ledger Payout Execution:\n  ├── DEBIT  Buyer Escrow Liability: ₹16,80,000\n  ├── CREDIT Seller Payout Account: ₹14,94,000 (Goods Net)\n  ├── CREDIT Statutory GST Remittance: ₹1,80,000\n  └── CREDIT Ampvault Rail Revenue (0.4%): ₹6,000\n[AUDIT PASS] Mod-36 Check: 0 PAISE DRIFT GUARANTEED!\nStatus: RELEASED & IMMUTABLY SETTLED."
             }
         ];
-function simAdvance() {
+
+        function simAdvance() {
             if (currentSimStep >= 5) {
                 simReset();
                 return;
@@ -880,6 +898,44 @@ function simAdvance() {
             if (btnLabel) btnLabel.textContent = data.btnText;
         }
 
+        function simReset() {
+            currentSimStep = 0;
+            const badge = document.getElementById('simStateBadge');
+            if (badge) {
+                badge.textContent = 'IDLE';
+                badge.style.background = 'rgba(245,158,11,0.15)';
+                badge.style.color = '#f59e0b';
+                badge.style.borderColor = 'rgba(245,158,11,0.3)';
+            }
+
+            for (let i = 1; i <= 5; i++) {
+                const node = document.getElementById('simNode' + i);
+                if (node) {
+                    node.style.background = 'rgba(255,255,255,0.05)';
+                    node.style.color = 'rgba(255,255,255,0.5)';
+                    node.style.fontWeight = 'normal';
+                }
+            }
+
+            const term = document.getElementById('simTerminal');
+            if (term) {
+                term.textContent = '[SYSTEM] Ampvault Escrow Simulator initialized.\nClick \'Step 1\' below to execute the real multi-party solar settlement flow.';
+            }
+            const btnLabel = document.querySelector('#simActionBtn span');
+            if (btnLabel) btnLabel.textContent = 'Step 1: Initialize Consignment (₹15L + 12% GST)';
+        }
+
+        function submitLead() {
+            const email = document.getElementById('leadEmail').value;
+            if (!email) {
+                alert('Please enter your contact email.');
+                return;
+            }
+            alert('Thank you! Our institutional onboarding team will reach out to ' + email + ' within 2 hours.');
+            closeDemoModal();
+        }
+
+        // Clean, High-Tech Interactive Ambient Particle & Constellation Grid (No Coin)
             </script>
 </body>
 </html>
