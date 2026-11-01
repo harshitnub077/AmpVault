@@ -701,6 +701,19 @@
             document.getElementById('calcModal').classList.add('active');
             updateCalculations();
         }
+        function openDemoModal() {
+            document.getElementById('demoModal').classList.add('active');
+        }
+        function closeDemoModal() {
+            document.getElementById('demoModal').classList.remove('active');
+        }
+        function switchDemoTab(tab) {
+            const isSim = tab === 'sim';
+            const simEl = document.getElementById('demoTabSim');
+            const leadEl = document.getElementById('demoTabLead');
+            if (simEl) simEl.style.display = isSim ? 'block' : 'none';
+            if (leadEl) leadEl.style.display = isSim ? 'none' : 'block';
+        }
         function closeCalculatorModal() {
             document.getElementById('calcModal').classList.remove('active');
         }
