@@ -401,3 +401,17 @@ curl -X GET http://localhost:8000/api/v1/ledger/accounts/<ACCOUNT_ID>/integrity
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
+
+
+## 🖥️ Modern Landing Website & Live Escrow Simulator
+
+Ampvault includes an institutional dark-mode landing website with an interactive 5-stage escrow simulator:
+
+- **Interactive Calculator**: Real-time HSN 8541 / 8504 / 8507 statutory GST computation and 0.4% platform fee calculation.
+- **5-Stage State Machine Simulator**:
+  1. `CREATED`: Consignment initialization and ICICI virtual account allocation.
+  2. `FUNDED`: Atomic double-entry escrow liability lock.
+  3. `IN_TRANSIT`: BlueDart courier GPS and e-Way bill HMAC verification.
+  4. `DELIVERED`: On-site EL inspection and delivery receipt confirmation.
+  5. `RELEASED`: Multi-leg payout with **0-paise drift guaranteed**.
+- **Run Locally**: `make run` or `uvicorn src.main:app --port 8000` -> Open `http://localhost:8000`
