@@ -119,7 +119,9 @@ async def serve_homepage():
     }
     if index_path.exists():
         return HTMLResponse(content=index_path.read_text(encoding="utf-8"), headers=headers)
-    return HTMLResponse(content="<h1>Ampvault Escrow Platform</h1><p>API docs at <a href='/docs'>/docs</a></p>", headers=headers)
+    return HTMLResponse(
+        content="<h1>Ampvault Escrow Platform</h1><p>API docs at <a href='/docs'>/docs</a></p>", headers=headers
+    )
 
 
 # Health & Telemetry
