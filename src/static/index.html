@@ -84,13 +84,13 @@
 
                     <div class="hero-trust-bar">
                         <div class="avatar-stack">
-                            <img src="/assets/avatar-1.png" alt="Rajesh Singhania" title="Tata Power EPC Partner" />
-                            <img src="/assets/avatar-2.png" alt="Priya Venkatraman" title="Renewable CleanGrid CFO" />
-                            <img src="/assets/avatar-3.png" alt="Amitesh Sharma" title="Director Supply Chain" />
+                            <img src="/assets/exec_avatar_1.webp" alt="Rajesh Singhania" title="Tata Power EPC Partner" />
+                            <img src="/assets/exec_avatar_2.webp" alt="Priya Venkatraman" title="Renewable CleanGrid CFO" />
+                            <img src="/assets/exec_avatar_3.webp" alt="Amitesh Sharma" title="Director Supply Chain" />
                         </div>
                         <div class="hero-trust-text">
                             <div class="trust-bold">Verified by 45+ Tier-1 EPCs & OEMs</div>
-                            <div class="trust-sub">₹120Cr+ Escrowed • 100% Milestone Lock • 0.4% Flat Fee</div>
+                            <div class="trust-sub">₹500Cr+ Escrowed • 100% Milestone Lock • 0.4% Flat Fee</div>
                         </div>
                     </div>
                 </div>
@@ -98,7 +98,7 @@
                 <div class="hero-right">
                     <div class="hero-visual-card">
                         <div class="hero-glow-backdrop"></div>
-                        <img src="/assets/detail-1.webp" alt="Ampvault Institutional Solar Escrow Core" class="hero-vault-img" />
+                        <img src="/assets/hero_solar_plant.webp" alt="Ampvault Institutional Solar Escrow Core" class="hero-vault-img" />
                         
                         <!-- Floating Holographic HUD Chips -->
                         <div class="hud-chip hud-chip-top">
@@ -246,60 +246,175 @@
                         </div>
                     </div>
 
-                    <!-- Embedded Scraped Chrome Dashboard with Holographic Overlays -->
+                    <!-- Interactive Procurement Workspace Tab Navigation -->
+                    <div class="panel-tab-nav">
+                        <button class="ptab-btn active" id="ptab-btn-cockpit" onclick="switchProcurementTab('cockpit')">
+                            <span>01. Live Consignment Cockpit</span>
+                        </button>
+                        <button class="ptab-btn" id="ptab-btn-tax" onclick="switchProcurementTab('tax')">
+                            <span>02. Statutory Tax Split Matrix (HSN 8541)</span>
+                        </button>
+                        <button class="ptab-btn" id="ptab-btn-ledger" onclick="switchProcurementTab('ledger')">
+                            <span>03. Programmatic Double-Entry Ledger</span>
+                        </button>
+                    </div>
+
+                    <!-- Panel Viewport with 3 Switchable Views -->
                     <div class="panel-viewport">
-                        <div class="panel-screen-wrap">
-                            <img src="/assets/dashboard.png" alt="Ampvault Institutional Solar Procurement Control Center" class="panel-dashboard-img" />
-                            
-                            <!-- Floating Holographic Glass HUD Widgets -->
-                            <div class="glass-overlay-card overlay-left">
-                                <div class="overlay-card-header">
-                                    <span class="live-dot-green"></span>
-                                    <span class="mono-head">DOUBLE-ENTRY AUDIT FEED</span>
+                        <!-- Tab 1: Live Consignment Cockpit -->
+                        <div class="ptab-content active" id="ptab-view-cockpit">
+                            <div class="panel-screen-wrap">
+                                <img src="/assets/dashboard.png" alt="Ampvault Institutional Solar Procurement Control Center" class="panel-dashboard-img" />
+                                
+                                <!-- Floating Holographic Glass HUD Widgets -->
+                                <div class="glass-overlay-card overlay-left">
+                                    <div class="overlay-card-header">
+                                        <span class="live-dot-green"></span>
+                                        <span class="mono-head">DOUBLE-ENTRY AUDIT FEED</span>
+                                    </div>
+                                    <div class="overlay-feed-row">
+                                        <span class="feed-ts">20:30:14</span>
+                                        <span class="feed-acc">DR: ICICI_ESCROW_VIRTUAL</span>
+                                        <span class="feed-amt green">+₹48,50,000</span>
+                                    </div>
+                                    <div class="overlay-feed-row">
+                                        <span class="feed-ts">20:30:14</span>
+                                        <span class="feed-acc">CR: ESCROW_HOLD_LIABILITY</span>
+                                        <span class="feed-amt">-₹48,50,000</span>
+                                    </div>
+                                    <div class="overlay-feed-row">
+                                        <span class="feed-ts">20:32:05</span>
+                                        <span class="feed-acc">DR: GST_INPUT_CREDIT_8541</span>
+                                        <span class="feed-amt cyan">+₹5,82,000</span>
+                                    </div>
+                                    <div class="overlay-feed-footer">
+                                        <span>Double-Entry Balance: ₹0.00 drift</span>
+                                        <span class="hash">#sha256:8f4c...3e1</span>
+                                    </div>
                                 </div>
-                                <div class="overlay-feed-row">
-                                    <span class="feed-ts">20:30:14</span>
-                                    <span class="feed-acc">DR: ICICI_ESCROW_VIRTUAL</span>
-                                    <span class="feed-amt green">+₹48,50,000</span>
-                                </div>
-                                <div class="overlay-feed-row">
-                                    <span class="feed-ts">20:30:14</span>
-                                    <span class="feed-acc">CR: ESCROW_HOLD_LIABILITY</span>
-                                    <span class="feed-amt">-₹48,50,000</span>
-                                </div>
-                                <div class="overlay-feed-row">
-                                    <span class="feed-ts">20:32:05</span>
-                                    <span class="feed-acc">DR: GST_INPUT_CREDIT_8541</span>
-                                    <span class="feed-amt cyan">+₹5,82,000</span>
-                                </div>
-                                <div class="overlay-feed-footer">
-                                    <span>Double-Entry Balance: ₹0.00 drift</span>
-                                    <span class="hash">#sha256:8f4c...3e1</span>
+
+                                <div class="glass-overlay-card overlay-right">
+                                    <div class="overlay-card-header">
+                                        <span class="live-dot-amber"></span>
+                                        <span class="mono-head">GEOFENCE TELEMETRY</span>
+                                    </div>
+                                    <div class="geofence-stats">
+                                        <div class="g-stat">
+                                            <span class="g-lbl">Carrier</span>
+                                            <span class="g-val">BlueDart Solar Logistics</span>
+                                        </div>
+                                        <div class="g-stat">
+                                            <span class="g-lbl">Distance</span>
+                                            <span class="g-val">680 km / 740 km</span>
+                                        </div>
+                                        <div class="g-stat">
+                                            <span class="g-lbl">ETA Site</span>
+                                            <span class="g-val cyan">Tomorrow 09:30 AM</span>
+                                        </div>
+                                    </div>
+                                    <div class="progress-bar-wrap">
+                                        <div class="progress-bar-fill" style="width: 84%;"></div>
+                                    </div>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="glass-overlay-card overlay-right">
-                                <div class="overlay-card-header">
-                                    <span class="live-dot-amber"></span>
-                                    <span class="mono-head">GEOFENCE TELEMETRY</span>
-                                </div>
-                                <div class="geofence-stats">
-                                    <div class="g-stat">
-                                        <span class="g-lbl">Carrier</span>
-                                        <span class="g-val">BlueDart Solar Logistics</span>
+                        <!-- Tab 2: Statutory Tax Split Matrix (HSN 8541) -->
+                        <div class="ptab-content" id="ptab-view-tax">
+                            <div class="ptab-tax-view">
+                                <div class="tax-matrix-grid">
+                                    <div class="tax-matrix-card">
+                                        <div class="t-lbl">BASE SOLAR EQUIPMENT VALUE</div>
+                                        <div class="t-val">₹43,30,357<span style="font-size: 13px; color: var(--text-muted);">.14</span></div>
+                                        <div class="t-sub">2,778 x Waaree 540W Bifacial Modules</div>
                                     </div>
-                                    <div class="g-stat">
-                                        <span class="g-lbl">Distance</span>
-                                        <span class="g-val">680 km / 740 km</span>
+                                    <div class="tax-matrix-card">
+                                        <div class="t-lbl">STATUTORY CGST + SGST (12%)</div>
+                                        <div class="t-val" style="color: var(--accent-cyan);">₹5,19,642<span style="font-size: 13px; color: var(--text-muted);">.86</span></div>
+                                        <div class="t-sub">HSN 8541.43 • Mod-36 GSTIN Passed</div>
                                     </div>
-                                    <div class="g-stat">
-                                        <span class="g-lbl">ETA Site</span>
-                                        <span class="g-val cyan">Tomorrow 09:30 AM</span>
+                                    <div class="tax-matrix-card">
+                                        <div class="t-lbl">AMPVAULT ESCROW PROTOCOL FEE (0.4%)</div>
+                                        <div class="t-val" style="color: var(--solar-gold);">₹19,400<span style="font-size: 13px; color: var(--text-muted);">.00</span></div>
+                                        <div class="t-sub">Includes ICICI Virtual Account &amp; E-Sign</div>
                                     </div>
                                 </div>
-                                <div class="progress-bar-wrap">
-                                    <div class="progress-bar-fill" style="width: 84%;"></div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: 8px;">
+                                    <div style="font-family: var(--font-mono); font-size: 12px; color: #10b981; font-weight: 600;">
+                                        ✓ NET SUPPLIER DIRECT DISBURSEMENT: ₹43,10,957.14
+                                    </div>
+                                    <div style="font-family: var(--font-mono); font-size: 11px; color: var(--text-muted);">
+                                        Reconciliation Assertion: 0.00 Paise Drift Verified
+                                    </div>
                                 </div>
+                            </div>
+                        </div>
+
+                        <!-- Tab 3: Programmatic Double-Entry Ledger -->
+                        <div class="ptab-content" id="ptab-view-ledger">
+                            <div class="ptab-ledger-view">
+                                <table class="ledger-audit-table">
+                                    <thead>
+                                        <tr>
+                                            <th>POSTING TIME</th>
+                                            <th>REFERENCE</th>
+                                            <th>JOURNAL ACCOUNT</th>
+                                            <th>DEBIT (DR ₹)</th>
+                                            <th>CREDIT (CR ₹)</th>
+                                            <th>STATUS</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>20:30:14.208</td>
+                                            <td>#TX-8842-DEP</td>
+                                            <td>ICICI_VIRTUAL_VAULT_042</td>
+                                            <td class="dr">₹48,50,000.00</td>
+                                            <td>-</td>
+                                            <td><span style="color:#10b981;">POSTED</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>20:30:14.208</td>
+                                            <td>#TX-8842-DEP</td>
+                                            <td>ESCROW_LIABILITY_HOLD</td>
+                                            <td>-</td>
+                                            <td class="cr">₹48,50,000.00</td>
+                                            <td><span style="color:#10b981;">POSTED</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>20:32:05.112</td>
+                                            <td>#TX-8842-REL</td>
+                                            <td>ESCROW_LIABILITY_HOLD</td>
+                                            <td class="dr">₹48,50,000.00</td>
+                                            <td>-</td>
+                                            <td><span style="color:#10b981;">CLEARED</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>20:32:05.112</td>
+                                            <td>#TX-8842-REL</td>
+                                            <td>SUPPLIER_WAAREE_ENERGIES</td>
+                                            <td>-</td>
+                                            <td class="cr">₹43,10,957.14</td>
+                                            <td><span style="color:#10b981;">SETTLED</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>20:32:05.112</td>
+                                            <td>#TX-8842-REL</td>
+                                            <td>GST_ESCROW_GOVT_HOLD</td>
+                                            <td>-</td>
+                                            <td class="cr">₹5,19,642.86</td>
+                                            <td><span style="color:#10b981;">SETTLED</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>20:32:05.112</td>
+                                            <td>#TX-8842-REL</td>
+                                            <td>AMPVAULT_FEE_COLLECTION</td>
+                                            <td>-</td>
+                                            <td class="cr">₹19,400.00</td>
+                                            <td><span style="color:#10b981;">SETTLED</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -356,7 +471,7 @@
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-img-wrap">
-                        <img src="/assets/feature-1.webp" alt="Automated Milestone Escrow" />
+                        <img src="/assets/solar_engineers.webp" alt="Automated Milestone Escrow" />
                     </div>
                     <div class="feature-info">
                         <h3 class="heading-sub">Automated Milestone Escrow</h3>
@@ -366,7 +481,7 @@
 
                 <div class="feature-card">
                     <div class="feature-img-wrap">
-                        <img src="/assets/feature-2.webp" alt="Statutory GST Engine" />
+                        <img src="/assets/solar_inverters.webp" alt="Statutory GST Engine" />
                     </div>
                     <div class="feature-info">
                         <h3 class="heading-sub">Statutory GST Engine</h3>
@@ -376,7 +491,7 @@
 
                 <div class="feature-card">
                     <div class="feature-img-wrap">
-                        <img src="/assets/feature-3.webp" alt="Immutable Double-Entry Ledger" />
+                        <img src="/assets/solar_rooftop_epc.webp" alt="Immutable Double-Entry Ledger" />
                     </div>
                     <div class="feature-info">
                         <h3 class="heading-sub">Immutable Ledger</h3>
@@ -412,7 +527,7 @@
                     </div>
                     <div class="deepdive-media">
                         <span class="deepdive-badge">01</span>
-                        <img src="/assets/detail-1.webp" alt="Zero-risk procurement for solar developers" />
+                        <img src="/assets/solar_tracker_india.webp" alt="Zero-risk procurement for solar developers" />
                     </div>
                 </div>
 
@@ -433,7 +548,7 @@
                     </div>
                     <div class="deepdive-media">
                         <span class="deepdive-badge">02</span>
-                        <img src="/assets/detail-2.webp" alt="Logistics & delivery verification" />
+                        <img src="/assets/solar_storage_bess.webp" alt="Logistics & delivery verification" />
                     </div>
                 </div>
 
@@ -454,7 +569,7 @@
                     </div>
                     <div class="deepdive-media">
                         <span class="deepdive-badge">03</span>
-                        <img src="/assets/detail-3.webp" alt="Transactional outbox and data vault" />
+                        <img src="/assets/hero_solar_plant.webp" alt="Transactional outbox and data vault" />
                     </div>
                 </div>
             </div>
@@ -473,7 +588,7 @@
 
                 <div class="services-grid">
                     <div class="service-card">
-                        <img src="/assets/service-1.png" class="service-img" alt="Commercial Solar EPCs" />
+                        <img src="/assets/solar_rooftop_epc.webp" class="service-img" alt="Commercial Solar EPCs" />
                         <div class="service-info">
                             <h3 class="heading-sub">Commercial Solar EPCs</h3>
                             <p class="text-body">Streamline milestone payments for multi-megawatt commercial & industrial projects with zero contractor non-performance risk.</p>
@@ -481,7 +596,7 @@
                     </div>
 
                     <div class="service-card">
-                        <img src="/assets/service-2.png" class="service-img" alt="Solar Module OEMs" />
+                        <img src="/assets/hero_solar_plant.webp" class="service-img" alt="Solar Module OEMs" />
                         <div class="service-info">
                             <h3 class="heading-sub">Solar Module OEMs</h3>
                             <p class="text-body">Guarantee upfront liquidity and verified order commitments without 90-day receivables delays or bad-debt write-offs.</p>
@@ -489,7 +604,7 @@
                     </div>
 
                     <div class="service-card">
-                        <img src="/assets/service-3.png" class="service-img" alt="Inverters, Storage & Substation Suppliers" />
+                        <img src="/assets/solar_inverters.webp" class="service-img" alt="Inverters, Storage & Substation Suppliers" />
                         <div class="service-info">
                             <h3 class="heading-sub">Inverters & Storage</h3>
                             <p class="text-body">Secure high-voltage power electronics consignments with programmatic HSN statutory invoices and instant settlement.</p>
@@ -497,7 +612,7 @@
                     </div>
 
                     <div class="service-card">
-                        <img src="/assets/service-1.png" class="service-img" alt="Solar Financiers & NBFCs" />
+                        <img src="/assets/solar_storage_bess.webp" class="service-img" alt="Solar Financiers & NBFCs" />
                         <div class="service-info">
                             <h3 class="heading-sub">Solar Financiers & NBFCs</h3>
                             <p class="text-body">Deploy project debt with full real-time visibility into collateral movement, equipment transit, and audited fund disbursements.</p>
@@ -551,10 +666,10 @@
             <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <div class="testimonial-author">
-                        <img src="/assets/testi-1.png" alt="Rajesh Singhania" />
+                        <img src="/assets/exec_avatar_1.webp" alt="Rajesh Singhania" />
                         <div>
                             <div class="author-name">Rajesh Singhania</div>
-                            <div class="author-role">VP Procurement, Azure Clean EPC</div>
+                            <div class="author-role">VP Procurement, Azure Clean Energy</div>
                         </div>
                     </div>
                     <p class="testimonial-quote">
@@ -564,7 +679,7 @@
 
                 <div class="testimonial-card">
                     <div class="testimonial-author">
-                        <img src="/assets/testi-2.png" alt="Priya Venkatraman" />
+                        <img src="/assets/exec_avatar_2.webp" alt="Priya Venkatraman" />
                         <div>
                             <div class="author-name">Priya Venkatraman</div>
                             <div class="author-role">CFO, CleanGrid Solar Infrastructure</div>
@@ -577,7 +692,7 @@
 
                 <div class="testimonial-card">
                     <div class="testimonial-author">
-                        <img src="/assets/testi-3.png" alt="Amitesh Sharma" />
+                        <img src="/assets/exec_avatar_3.webp" alt="Amitesh Sharma" />
                         <div>
                             <div class="author-name">Amitesh Sharma</div>
                             <div class="author-role">Director of Supply Chain & Logistics, EnerTech</div>
@@ -895,6 +1010,16 @@ Click 'Step 1' below to execute the real multi-party solar settlement flow.</div
         }
         function closeDemoModal() {
             document.getElementById('demoModal').classList.remove('active');
+        }
+
+        function switchProcurementTab(tabId) {
+            document.querySelectorAll('.ptab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.ptab-content').forEach(content => content.classList.remove('active'));
+            
+            const activeBtn = document.getElementById('ptab-btn-' + tabId);
+            const activeView = document.getElementById('ptab-view-' + tabId);
+            if (activeBtn) activeBtn.classList.add('active');
+            if (activeView) activeView.classList.add('active');
         }
 
         function formatINR(num) {
