@@ -92,17 +92,17 @@ if STATIC_DIR.exists():
     if assets_dir.exists():
         app.mount("/assets", StaticFiles(directory=assets_dir), name="assets")
 
+
 @app.api_route("/favicon.ico", methods=["GET", "HEAD"], include_in_schema=False)
-async def favicon_ico() -> Response:
-    """Serve static favicon ICO file."""
+async def favicon_ico():
     ico_path = STATIC_DIR / "favicon.ico"
     if ico_path.exists():
         return FileResponse(ico_path, media_type="image/x-icon")
     return Response(status_code=404)
 
+
 @app.api_route("/favicon.svg", methods=["GET", "HEAD"], include_in_schema=False)
-async def favicon_svg() -> Response:
-    """Serve static favicon SVG image."""
+async def favicon_svg():
     svg_path = STATIC_DIR / "favicon.svg"
     if svg_path.exists():
         return FileResponse(svg_path, media_type="image/svg+xml")
@@ -112,9 +112,14 @@ async def favicon_svg() -> Response:
 @app.api_route("/", methods=["GET", "HEAD"], response_class=HTMLResponse, include_in_schema=False)
 async def serve_homepage():
     index_path = STATIC_DIR / "index.html"
+    headers = {
+        "Cache-Control": "no-cache, no-store, must-revalidate",
+        "Pragma": "no-cache",
+        "Expires": "0",
+    }
     if index_path.exists():
-        return HTMLResponse(content=index_path.read_text(encoding="utf-8"))
-    return HTMLResponse(content="<h1>Ampvault Escrow Platform</h1><p>API docs at <a href='/docs'>/docs</a></p>")
+        return HTMLResponse(content=index_path.read_text(encoding="utf-8"), headers=headers)
+    return HTMLResponse(content="<h1>Ampvault Escrow Platform</h1><p>API docs at <a href='/docs'>/docs</a></p>", headers=headers)
 
 
 # Health & Telemetry
