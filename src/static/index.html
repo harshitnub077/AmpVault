@@ -18,7 +18,7 @@
 <body style="background-color: #000000; color: #ffffff;">
 
     <!-- Interactive Ambient Grid Canvas Background (Pure Black Aesthetic) -->
-    <canvas id="bg-canvas-container" data-ambient="constellation" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 0; pointer-events: none;"></canvas>
+    <canvas id="bg-canvas-container" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 0; pointer-events: none;"></canvas>
 
     <!-- Ambient Glowing Spotlights -->
     <div style="position: fixed; top: 15%; left: 20%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(0, 240, 255, 0.05) 0%, transparent 70%); pointer-events: none; z-index: 1; filter: blur(60px);"></div>
@@ -594,9 +594,7 @@
 
     </main>
 
-        </main>
-
-<!-- Interactive Instant Escrow Calculator Modal -->
+    <!-- Interactive Instant Escrow Calculator Modal -->
     <div class="amp-modal-backdrop" id="calcModal" onclick="if(event.target===this)closeCalculatorModal()">
         <div class="amp-modal-card">
             <button class="amp-modal-close" onclick="closeCalculatorModal()">&times;</button>
@@ -936,7 +934,6 @@ Click 'Step 1' below to execute the real multi-party solar settlement flow.</div
         }
 
         // Clean, High-Tech Interactive Ambient Particle & Constellation Grid (No Coin)
-        
         (function initConstellationBackground() {
             const canvas = document.getElementById('bg-canvas-container');
             if (!canvas) return;
@@ -945,8 +942,21 @@ Click 'Step 1' below to execute the real multi-party solar settlement flow.</div
 
             let width = canvas.width = window.innerWidth;
             let height = canvas.height = window.innerHeight;
+
             const particles = [];
-            const particleCount = Math.floor((width * height) / 18000);
+            const particleCount = Math.floor((width * height) / 18000); // Responsive density
+
+            let mouse = { x: width / 2, y: height / 2, radius: 140 };
+
+            window.addEventListener('mousemove', (e) => {
+                mouse.x = e.clientX;
+                mouse.y = e.clientY;
+            });
+
+            window.addEventListener('resize', () => {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+            });
 
             class Particle {
                 constructor() {
@@ -958,12 +968,25 @@ Click 'Step 1' below to execute the real multi-party solar settlement flow.</div
                     this.color = Math.random() > 0.4 ? 'rgba(165, 237, 238, ' : 'rgba(16, 185, 129, ';
                     this.alpha = Math.random() * 0.5 + 0.2;
                 }
+
                 update() {
                     this.x += this.vx;
                     this.y += this.vy;
+
                     if (this.x < 0 || this.x > width) this.vx *= -1;
                     if (this.y < 0 || this.y > height) this.vy *= -1;
+
+                    // Mouse soft repulsion
+                    const dx = mouse.x - this.x;
+                    const dy = mouse.y - this.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < mouse.radius) {
+                        const force = (mouse.radius - dist) / mouse.radius;
+                        this.x -= (dx / dist) * force * 1.5;
+                        this.y -= (dy / dist) * force * 1.5;
+                    }
                 }
+
                 draw() {
                     ctx.beginPath();
                     ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
@@ -972,10 +995,21 @@ Click 'Step 1' below to execute the real multi-party solar settlement flow.</div
                 }
             }
 
-            for (let i = 0; i < particleCount; i++) particles.push(new Particle());
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
 
             function animate() {
                 ctx.clearRect(0, 0, width, height);
+
+                // Deep Obsidian gradient overlay
+                const bgGrad = ctx.createLinearGradient(0, 0, 0, height);
+                bgGrad.addColorStop(0, '#000000');
+                bgGrad.addColorStop(0.5, '#020308');
+                bgGrad.addColorStop(1, '#000000');
+                ctx.fillStyle = bgGrad;
+                ctx.fillRect(0, 0, width, height);
+
                 // Draw connecting network lines (Clean Energy Grid Rails)
                 for (let i = 0; i < particles.length; i++) {
                     for (let j = i + 1; j < particles.length; j++) {
@@ -994,10 +1028,12 @@ Click 'Step 1' below to execute the real multi-party solar settlement flow.</div
                     }
                 }
 
+                // Update and draw particles
                 for (let i = 0; i < particles.length; i++) {
                     particles[i].update();
                     particles[i].draw();
                 }
+
                 requestAnimationFrame(animate);
             }
             animate();
