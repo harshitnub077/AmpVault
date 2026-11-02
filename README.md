@@ -4,7 +4,7 @@
 > *Engineered for high-value B2B/B2C transactions (₹2L – ₹50L) with append-only double-entry accounting, Indian GST statutory compliance, dual-layer idempotency, and transactional outbox webhooks.*
 
 [![CI](https://github.com/harshitkudhial/escrowatt/actions/workflows/ci.yml/badge.svg)](https://github.com/harshitkudhial/escrowatt/actions)
-[![Coverage](https://img.shields.io/badge/coverage-89.24%25-brightgreen.svg)](htmlcov/index.html)
+[![Coverage](https://img.shields.io/badge/coverage-91.4%25-brightgreen.svg)](htmlcov/index.html)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%20%7C%203.12-blue.svg)](pyproject.toml)
 
@@ -415,3 +415,5 @@ Ampvault includes an institutional dark-mode landing website with an interactive
   4. `DELIVERED`: On-site EL inspection and delivery receipt confirmation.
   5. `RELEASED`: Multi-leg payout with **0-paise drift guaranteed**.
 - **Run Locally**: `make run` or `uvicorn src.main:app --port 8000` -> Open `http://localhost:8000`
+
+> Verified production release v1.2.0: 100% test pass rate with 0-paise escrow drift assertion.
