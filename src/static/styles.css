@@ -1104,3 +1104,46 @@ body {
     }
 }
 
+@media (max-width: 768px) {
+    .page-container {
+        padding: 0 20px;
+    }
+    .nav-pill {
+        gap: 8px;
+        padding: 4px 6px 4px 12px;
+    }
+    .nav-pill .nav-link {
+        display: none;
+    }
+    .nav-pill button {
+        padding: 8px 14px;
+        font-size: 13px;
+    }
+    .hero-section {
+        padding-top: 100px;
+        padding-bottom: 50px;
+    }
+    .hero-vault-img {
+        max-width: 320px;
+    }
+    .hud-chip {
+        padding: 8px 12px;
+    }
+    .hud-chip-top {
+        top: -8px;
+        left: -8px;
+    }
+    .hud-chip-bottom {
+        bottom: -8px;
+        right: -8px;
+    }
+    .hud-chip-side {
+        display: none;
+    }
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+}
