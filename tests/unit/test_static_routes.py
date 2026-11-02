@@ -1,6 +1,17 @@
 import httpx
 import pytest
+
 from src.main import app
+
+
+@pytest.mark.asyncio
+async def test_homepage():
+    async with httpx.AsyncClient(transport=httpx.ASGITransport(app=app), base_url="http://test") as client:
+        r = await client.get("/")
+        assert r.status_code == 200
+        assert "Ampvault" in r.text
+        assert "Institutional Solar Escrow" in r.text
+
 
 @pytest.mark.asyncio
 async def test_favicon_endpoints():
@@ -9,10 +20,3 @@ async def test_favicon_endpoints():
         assert r_ico.status_code == 200
         r_svg = await client.get("/favicon.svg")
         assert r_svg.status_code == 200
-
-@pytest.mark.asyncio
-async def test_homepage():
-    async with httpx.AsyncClient(transport=httpx.ASGITransport(app=app), base_url="http://test") as client:
-        r = await client.get("/")
-        assert r.status_code == 200
-        assert "Ampvault" in r.text
