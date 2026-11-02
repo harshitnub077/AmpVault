@@ -1057,3 +1057,50 @@ body {
     border-color: var(--accent-cyan);
 }
 
+/* ==========================================================================
+   RESPONSIVE MEDIA QUERIES
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+    }
+    .hero-right {
+        justify-self: start;
+    }
+    .solutions-header {
+        grid-template-columns: 1fr;
+    }
+    .partners-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    .deepdive-row {
+        grid-template-columns: 1fr;
+    }
+    .deepdive-row.reverse {
+        direction: ltr;
+    }
+    .services-layout {
+        grid-template-columns: 1fr;
+    }
+    .services-sticky {
+        position: static;
+    }
+    .benefits-layout {
+        grid-template-columns: 1fr;
+    }
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+    .pricing-grid {
+        grid-template-columns: 1fr;
+    }
+    .footer-wrap {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 40px;
+    }
+}
+
