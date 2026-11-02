@@ -93,14 +93,16 @@ if STATIC_DIR.exists():
         app.mount("/assets", StaticFiles(directory=assets_dir), name="assets")
 
 @app.api_route("/favicon.ico", methods=["GET", "HEAD"], include_in_schema=False)
-async def favicon_ico():
+async def favicon_ico() -> Response:
+    """Serve static favicon ICO file."""
     ico_path = STATIC_DIR / "favicon.ico"
     if ico_path.exists():
         return FileResponse(ico_path, media_type="image/x-icon")
     return Response(status_code=404)
 
 @app.api_route("/favicon.svg", methods=["GET", "HEAD"], include_in_schema=False)
-async def favicon_svg():
+async def favicon_svg() -> Response:
+    """Serve static favicon SVG image."""
     svg_path = STATIC_DIR / "favicon.svg"
     if svg_path.exists():
         return FileResponse(svg_path, media_type="image/svg+xml")
