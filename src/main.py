@@ -12,6 +12,10 @@ from fastapi.staticfiles import StaticFiles
 from prometheus_client import CONTENT_TYPE_LATEST, Counter, Histogram, generate_latest
 from sqlalchemy import text
 
+import src.auth.models  # noqa: F401
+import src.escrow.models  # noqa: F401
+import src.ledger.models  # noqa: F401
+import src.webhooks.models  # noqa: F401
 from src.api.v1.auth import router as auth_router
 from src.api.v1.disputes import router as disputes_router
 from src.api.v1.escrow import router as escrow_router
@@ -20,6 +24,7 @@ from src.api.v1.reconciliation import router as reconciliation_router
 from src.api.v1.webhooks import router as webhooks_router
 from src.core.config import get_settings
 from src.core.database import Base, engine
+from src.core.idempotency import IdempotencyRecord  # noqa: F401
 
 settings = get_settings()
 
