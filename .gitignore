@@ -34,3 +34,6 @@ coverage.xml
 .DS_Store
 .idea/
 .vscode/
+
+# Local tunnel state
+scripts/LIVE_TUNNEL_URL.txt
